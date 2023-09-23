@@ -21,9 +21,17 @@
             <div class="col s12">
                 <h1>CRUD IN LARAVEL 10</h1>
                 <hr>
-                <a href="/ajouter" class="btn btn-primary">Ajouter un étudiant</a>
-                <hr>
-                <table class="table">
+                    <a href="/ajouter" class="btn btn-primary">Ajouter un étudiant</a>
+                    <hr>
+
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+
+                    @endif
+
+                    <table class="table">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -34,20 +42,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($etudiants as $etudiant)
+                        @php
+                                $ide=1;
+                        @endphp
 
-
-                        <tr>
-                            <td> {{ $etudiant ->id}}</td>
-                            <td>{{ $etudiant ->nom}}</td>
-                            <td>{{ $etudiant ->prenom}}</td>
-                            <td>{{ $etudiant ->classe}}</td>
-                            <td>
-                                <a href="#" class="btn btn-info">Update</a>
-                                <a href="#" class="btn btn-danger">Update</a>
-                            </td>
-                        </tr>
-                        @endforeach
+                            @foreach ($etudiants as $etudiant)
+                            <tr>
+                                <td> {{ $etudiant ->id}}</td>
+                                <td>{{ $etudiant ->nom}}</td>
+                                <td>{{ $etudiant ->prenom}}</td>
+                                <td>{{ $etudiant ->classe}}</td>
+                                <td>
+                                    <a href="/update-etudiant/{{ $etudiant ->id}}" class="btn btn-info">Update</a>
+                                    <a href="/delete-etudiant/{{ $etudiant ->id}}" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                            @php
+                                $ide += 1;
+                            @endphp
+                            @endforeach
                     </tbody>
                 </table>
             </div>
