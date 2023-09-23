@@ -34,36 +34,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($etudiants as $etudiant)
+
+
                         <tr>
-                            <td>1</td>
-                            <td>ADAM</td>
-                            <td>Fadel</td>
-                            <td>1ere</td>
+                            <td> {{ $etudiant ->id}}</td>
+                            <td>{{ $etudiant ->nom}}</td>
+                            <td>{{ $etudiant ->prenom}}</td>
+                            <td>{{ $etudiant ->classe}}</td>
                             <td>
                                 <a href="#" class="btn btn-info">Update</a>
                                 <a href="#" class="btn btn-danger">Update</a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>TANAO</td>
-                            <td>André</td>
-                            <td>1ere</td>
-                            <td>
-                                <a href="#" class="btn btn-info">Update</a>
-                                <a href="#" class="btn btn-danger">Update</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>TCHATAKORA</td>
-                            <td>Imran</td>
-                            <td>1ere</td>
-                            <td>
-                                <a href="#" class="btn btn-info">Update</a>
-                                <a href="#" class="btn btn-danger">Update</a>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
